@@ -19,9 +19,11 @@ namespace COMP2614Assign03
 
         public int InvoiceDiscount { get; set; }
 
+        public int InvoiceQuantity { get; set; }
+
         public override string ToString()
         {
-            return $"{InvoiceNumber} {InvoiceDateTime}  {InvoiceDiscount}";
+            return $"{InvoiceNumber} {InvoiceDateTime}  {InvoiceDiscount} {InvoiceQuantity}";
         }
 
 
