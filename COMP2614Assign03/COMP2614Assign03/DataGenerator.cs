@@ -13,10 +13,10 @@ namespace COMP2614Assign03
         public static InvoiceCollection GetInvoices()
         {
             int invoiceNumber;
-           // DateTime 
+            DateTime invoiceDateTime;
             List<string> lines = new List<string>();
-            List<int> InvoiceNum = new List<int>();
-            List<DateTime> In = new List<DateTime>();
+            List<int> invoiceList = new List<int>();
+            List<DateTime> Inn = new List<DateTime>();
             using (StreamReader reader = new StreamReader("...\\...\\invoiceData.txt"))
             {
                 string line;
@@ -32,11 +32,8 @@ namespace COMP2614Assign03
                     string[] splitLineByColon = line.Split(':');
 
                     invoiceNumber = Convert.ToInt32(splitLineByColon[0]);
-                    InvoiceNum.Add(invoiceNumber);
+                    invoiceList.Add(invoiceNumber);
 
-                    //invoice
-
-                    //Console.WriteLine(InvoiceNumbers[0]);
 
                 }
 
@@ -54,9 +51,9 @@ namespace COMP2614Assign03
                
 
         InvoiceCollection invoices = new InvoiceCollection();
-        invoices.Add(new Invoice { InvoiceNumber = InvoiceNum[0] });
-        invoices.Add(new Invoice { InvoiceNumber = InvoiceNum[1] });
-        invoices.Add(new Invoice { InvoiceNumber = InvoiceNum[2] });
+        invoices.Add(new Invoice { InvoiceNumber = invoiceList[0] });
+        invoices.Add(new Invoice { InvoiceNumber = invoiceList[1] });
+        invoices.Add(new Invoice { InvoiceNumber = invoiceList[2] });
 
             //invoicesString = invoices;
             return invoices;
