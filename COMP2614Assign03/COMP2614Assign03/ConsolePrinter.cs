@@ -18,9 +18,17 @@ namespace COMP2614Assign03
                 Console.WriteLine("{0} {1}", "Invoice Date: ", invoice.InvoiceDateTime);
                 //Console.WriteLine("{0} {1}", "Discount Date: ", invoice.InvoiceDiscountDate);
                 Console.WriteLine("{0}% {1}", "Terms: ", invoice.InvoiceDiscount);
+
+
                 Console.WriteLine("{0}% {1}", "Invoice Quanitty: ", invoice.InvoiceQuantity);
 
+                Console.WriteLine("{0} {1}", "Invoice Sku: ", invoice.InvoiceSku);
 
+                Console.WriteLine("{0} {1}", "Invoice Description: ", invoice.InvoiceDescription);
+
+                Console.WriteLine("{0} {1}", "Invoice Price: ", invoice.InvoicePrice);
+
+                Console.WriteLine("{0} {1}", "Invoice PST: ", invoice.InvoicePST);
             }
             Console.WriteLine();
         }

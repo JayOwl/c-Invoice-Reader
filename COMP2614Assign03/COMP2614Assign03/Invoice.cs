@@ -12,6 +12,13 @@ namespace COMP2614Assign03
     {
         public int InvoiceNumber { get; set; }
 
+        public string InvoiceSku { get; set; }
+
+        public string InvoiceDescription { get; set; }
+
+        public string InvoicePST { get; set; }
+
+        public decimal InvoicePrice { get; set; }
 
         public DateTime InvoiceDateTime { get; set; }
 
@@ -23,7 +30,7 @@ namespace COMP2614Assign03
 
         public override string ToString()
         {
-            return $"{InvoiceNumber} {InvoiceDateTime}  {InvoiceDiscount} {InvoiceQuantity}";
+            return $"{InvoiceNumber} {InvoiceDateTime}  {InvoiceDiscount} {InvoiceQuantity} {InvoiceSku} {InvoicePrice}";
         }
 
 
