@@ -10,9 +10,12 @@ namespace COMP2614Assign03
     {
         public static void ShowInvoice(InvoiceCollection invoices)
         {
+            Console.WriteLine("Invoice Listing");
+            Console.WriteLine(new string('-', 38));
             foreach (Invoice invoice in invoices)
-            {
-                Console.WriteLine(invoice);
+            {       
+                Console.WriteLine("{0} {1}","Invoice Number: ", invoice);
+               // Console.WriteLine("{0} {1}", "Invoice Date: ", DateTime);
             }
             Console.WriteLine();
         }
