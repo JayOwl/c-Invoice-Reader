@@ -14,8 +14,12 @@ namespace COMP2614Assign03
             Console.WriteLine(new string('-', 38));
             foreach (Invoice invoice in invoices)
             {       
-                Console.WriteLine("{0} {1}","Invoice Number: ", invoice);
-               // Console.WriteLine("{0} {1}", "Invoice Date: ", DateTime);
+                Console.WriteLine("{0} {1}","Invoice Number: ", invoice.InvoiceNumber);
+                Console.WriteLine("{0} {1}", "Invoice Date: ", invoice.InvoiceDateTime);
+                //Console.WriteLine("{0} {1}", "Discount Date: ", invoice.InvoiceDiscountDate);
+                Console.WriteLine("{0}% {1}", "Terms: ", invoice.InvoiceDiscount);
+
+
             }
             Console.WriteLine();
         }

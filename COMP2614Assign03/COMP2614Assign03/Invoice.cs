@@ -13,15 +13,15 @@ namespace COMP2614Assign03
         public int InvoiceNumber { get; set; }
 
 
-        public DateTime DateTime { get; set; }
+        public DateTime InvoiceDateTime { get; set; }
 
-        public DateTime DiscountDate { get; set; }
+        public DateTime InvoiceDiscountDate { get; set; }
 
-        // public Decimal;
+        public int InvoiceDiscount { get; set; }
 
         public override string ToString()
         {
-            return $"{InvoiceNumber} {DateTime}";
+            return $"{InvoiceNumber} {InvoiceDateTime}  {InvoiceDiscount}";
         }
 
 

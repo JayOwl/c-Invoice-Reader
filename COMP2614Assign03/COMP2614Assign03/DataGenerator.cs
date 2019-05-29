@@ -13,10 +13,15 @@ namespace COMP2614Assign03
         public static InvoiceCollection GetInvoices()
         {
             int invoiceNumber;
+            int invoiceDiscount;
+            int invoiceChangeTime;
             DateTime invoiceDateTime;
+            DateTime invoiceDiscountDate;
             List<string> lines = new List<string>();
-            List<int> invoiceList = new List<int>();
-            List<DateTime> Inn = new List<DateTime>();
+            List<int> invoiceNumberList = new List<int>();
+            List<DateTime> invoiceDateTimeList = new List<DateTime>();
+            //List<DateTime> invoiceDiscountDateList = new List<DateTime>();
+            List<int> invoiceDiscountList = new List<int>();
             using (StreamReader reader = new StreamReader("...\\...\\invoiceData.txt"))
             {
                 string line;
@@ -29,21 +34,33 @@ namespace COMP2614Assign03
                     // ... Add it to our List.
 
                     lines.Add(line);
-                    string[] splitLineByColon = line.Split(':');
+                    string newLines = line.Replace("|", ":");
+                    string[] splitLineByColon = newLines.Split(':');
+                    string[] splitLineByPipe = newLines.Split('|');
 
                     invoiceNumber = Convert.ToInt32(splitLineByColon[0]);
-                    invoiceList.Add(invoiceNumber);
+                    invoiceNumberList.Add(invoiceNumber);
+
+                    invoiceDateTime = DateTime.Parse(splitLineByColon[1]);               
+                    invoiceDateTimeList.Add(invoiceDateTime);
+                
+
+                    //invoiceDiscountDate = DateTime.Parse(splitLineByColon[2]);
+                    //invoiceDiscountDateList.Add(invoiceDiscountDate);
+
+                    invoiceDiscount = Convert.ToInt32(splitLineByColon[2]);
+                    invoiceDiscountList.Add(invoiceDiscount);
 
 
                 }
 
-                int intInvoiceNumbers = 0;
-                foreach (string value in lines)
-                {
-                    string invoiceNumbers;    
+                //int intInvoiceNumbers = 0;
+                //foreach (string value in lines)
+                //{
+                //    string invoiceNumbers;    
 
 
-                }
+                //}
             }
 
 
@@ -51,9 +68,9 @@ namespace COMP2614Assign03
                
 
         InvoiceCollection invoices = new InvoiceCollection();
-        invoices.Add(new Invoice { InvoiceNumber = invoiceList[0] });
-        invoices.Add(new Invoice { InvoiceNumber = invoiceList[1] });
-        invoices.Add(new Invoice { InvoiceNumber = invoiceList[2] });
+        invoices.Add(new Invoice { InvoiceNumber = invoiceNumberList[0], InvoiceDateTime = invoiceDateTimeList[0], InvoiceDiscount= invoiceDiscountList[0] });
+        invoices.Add(new Invoice { InvoiceNumber = invoiceNumberList[1], InvoiceDateTime = invoiceDateTimeList[1], InvoiceDiscount = invoiceDiscountList[1] });
+        invoices.Add(new Invoice { InvoiceNumber = invoiceNumberList[2], InvoiceDateTime = invoiceDateTimeList[2], InvoiceDiscount = invoiceDiscountList[2] });
 
             //invoicesString = invoices;
             return invoices;
