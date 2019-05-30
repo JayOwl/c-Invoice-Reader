@@ -24,13 +24,18 @@ namespace COMP2614Assign03
                 decimal gst = 0.05m;                
                 decimal taxGst = gst * subTotal;
 
+                decimal total = subTotal + GetPst(invoice.InvoicePrice) + GetPst(invoice.InvoicePrice) + GetPst(invoice.InvoicePrice) + taxGst;
+
 
 
                 Console.WriteLine(new string('-', 78));
                 Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", "Qty", "SKU", "Description", "Price", "PST", "Ext");
                 Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", invoice.InvoiceQuantity, invoice.InvoiceSku, invoice.InvoiceDescription, invoice.InvoicePrice, invoice.InvoicePST, invoice.InvoiceTotalPrice);
                 Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", invoice.InvoiceQuantity2, invoice.InvoiceSku2, invoice.InvoiceDescription2, invoice.InvoicePrice2, invoice.InvoicePST2, invoice.InvoiceTotalPrice2);
-                Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", invoice.InvoiceQuantity3, invoice.InvoiceSku3, invoice.InvoiceDescription3, invoice.InvoicePrice3, invoice.InvoicePST3, invoice.InvoiceTotalPrice3);
+                if (invoice.InvoiceQuantity3 != 0)
+                {
+                    Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", invoice.InvoiceQuantity3, invoice.InvoiceSku3, invoice.InvoiceDescription3, invoice.InvoicePrice3, invoice.InvoicePST3, invoice.InvoiceTotalPrice3);
+                }
                 Console.WriteLine(new string('-', 78));
                 Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", "", "SubTotal: ","", "", "", subTotal);
                 Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", "", "GST", "", "", "", taxGst);
@@ -47,6 +52,8 @@ namespace COMP2614Assign03
                     Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", "", "PST", "", "", "", GetPst(invoice.InvoicePrice3));
                 }
                 Console.WriteLine(new string('-', 78));
+                Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", "", "Total:", "", "", "", total);
+              
             }
 
             decimal GetPst(decimal productCost)
@@ -54,6 +61,9 @@ namespace COMP2614Assign03
                 decimal pst = 0.07m;
                 return productCost * pst;
             }
+
+          
+
         }
        
     }

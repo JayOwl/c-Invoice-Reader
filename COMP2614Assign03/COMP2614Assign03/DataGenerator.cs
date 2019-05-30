@@ -94,8 +94,8 @@ namespace COMP2614Assign03
                     string[] splitByPipeandColon = splitLineByPipe.Skip(1).ToArray();
 
                     string[] firstItemDetail = splitByPipeandColon[0].Split(':');
-                    string[] secondItemDetail = splitByPipeandColon[1].Split(':');
-                    string[] thirdItemDetail = splitByPipeandColon[2].Split(':');
+                    string[] secondItemDetail = splitByPipeandColon.ElementAtOrDefault(1) != null ? splitByPipeandColon.ElementAtOrDefault(1).Split(':') : new string [] { "" };
+                    string[] thirdItemDetail = splitByPipeandColon.ElementAtOrDefault(2) != null ? splitByPipeandColon.ElementAtOrDefault(2).Split(':') : new string[] { "" };
 
 
 
@@ -121,28 +121,33 @@ namespace COMP2614Assign03
                     invoiceQuantity2 = Convert.ToInt32(secondItemDetail[0]);
                     invoiceQuantityList2.Add(invoiceQuantity2);
 
-                    invoiceQuantity3 = Convert.ToInt32(thirdItemDetail[0]);
+                    string value = GetValueOrEmpty(thirdItemDetail, 0);
+                    int.TryParse(value, out invoiceQuantity3);
                     invoiceQuantityList3.Add(invoiceQuantity3);
 
 
                     invoiceSku = firstItemDetail[1];
                     invoiceSkuList.Add(invoiceSku);
 
-                    invoiceSku2 = secondItemDetail[1];
-                    invoiceSkuList2.Add(invoiceSku2);
+                    //invoiceSku2 = secondItemDetail[1];
+                    string sku2 = GetValueOrEmpty(secondItemDetail, 1);
+                    invoiceSkuList2.Add(sku2);
 
-                    invoiceSku3 = thirdItemDetail[1];
-                    invoiceSkuList3.Add(invoiceSku3);
+                   // invoiceSku3 = thirdItemDetail[1];
+                    string sku3 = GetValueOrEmpty(thirdItemDetail, 1);
+                    invoiceSkuList3.Add(sku3);
 
 
                     invoiceDescription = firstItemDetail[2];
-                    invoiceDescriptionList.Add(invoiceDescription);
+                    string descript = GetValueOrEmpty(firstItemDetail, 2);
+                    invoiceDescriptionList.Add(descript);
 
                     invoiceDescription2 = secondItemDetail[2];
                     invoiceDescriptionList2.Add(invoiceDescription2);
 
-                    invoiceDescription3 = thirdItemDetail[2];
-                    invoiceDescriptionList3.Add(invoiceDescription3);
+                 
+                    string descript3 = GetValueOrEmpty(thirdItemDetail, 2);
+                    invoiceDescriptionList3.Add(descript3);
 
 
                     invoicePrice = Convert.ToDecimal(firstItemDetail[3]);
@@ -151,18 +156,26 @@ namespace COMP2614Assign03
                     invoicePrice2 = Convert.ToDecimal(secondItemDetail[3]);
                     invoicePriceList2.Add(invoicePrice2);
 
-                    invoicePrice3 = Convert.ToDecimal(thirdItemDetail[3]);
+                    string price = GetValueOrEmpty(thirdItemDetail, 3);
+                    decimal.TryParse(price, out invoicePrice3);
                     invoicePriceList3.Add(invoicePrice3);
 
 
                     invoicePst = firstItemDetail[4];
                     invoicePSTList.Add(invoicePst);
 
-                    invoicePst2 = secondItemDetail[4];
+                    //string pst2 = GetValueOrEmpty(thirdItemDetail, 4);
+                    //invoicePSTList3.Add(pst2);
+
+
+                    invoicePst2 = firstItemDetail[4];
                     invoicePSTList2.Add(invoicePst2);
 
-                    invoicePst3 = thirdItemDetail[4];
-                    invoicePSTList3.Add(invoicePst3);
+                    //string pst2 = GetValueOrEmpty(thirdItemDetail, 4);
+                    //invoicePSTList3.Add(pst2);
+
+                    string pst3 = GetValueOrEmpty(thirdItemDetail, 4);
+                    invoicePSTList3.Add(pst3);
 
 
                     invoiceTotalPrice = Convert.ToDecimal(invoiceQuantity * invoicePrice);
@@ -173,6 +186,8 @@ namespace COMP2614Assign03
 
                     invoiceTotalPrice3 = Convert.ToDecimal(invoiceQuantity3 * invoicePrice3);
                     invoiceTotalPriceList3.Add(invoiceTotalPrice3);
+
+ 
                 }
             }
     
@@ -263,10 +278,17 @@ namespace COMP2614Assign03
         });
 
             //invoicesString = invoices;
-        return invoices;
+        return invoices;            
 
-            
+        }
 
+        static string GetValueOrEmpty(string[] items, int index)
+        {
+
+            string value = items.ElementAtOrDefault(index);
+            if (value != null)
+                return value;
+            else return "";
         }
     }
 }
