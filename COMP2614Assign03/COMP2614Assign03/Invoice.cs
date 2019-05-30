@@ -16,14 +16,13 @@ namespace COMP2614Assign03
 
         public DateTime InvoiceDiscountDate { get; set; }
 
-        public int InvoiceDiscount { get; set; }
+        public decimal InvoiceDiscount { get; set; }
 
 
 
         public int InvoiceQuantity { get; set; }
         public int InvoiceQuantity2 { get; set; }
-
-      public int InvoiceQuantity3 { get; set; }
+        public int InvoiceQuantity3 { get; set; }
 
         public string InvoiceSku { get; set; }
         public string InvoiceSku2 { get; set; }
@@ -44,8 +43,6 @@ namespace COMP2614Assign03
         public decimal InvoiceTotalPrice { get; set; }
         public decimal InvoiceTotalPrice2 { get; set; }
         public decimal InvoiceTotalPrice3 { get; set; }
-
-
 
 
 

@@ -14,57 +14,62 @@ namespace COMP2614Assign03
 
             Console.WriteLine("Invoice Listing");
             Console.WriteLine(new string('-', 78));
+
             foreach (Invoice invoice in invoices)
-            {       
+            {
+                TimeSpan discountDates = invoice.InvoiceDiscountDate.Subtract(invoice.InvoiceDateTime);
+
+
                 Console.WriteLine("{0} {1}","Invoice Number: ", invoice.InvoiceNumber);
-                Console.WriteLine("{0} {1}", "Invoice Date: ", invoice.InvoiceDateTime);
-                Console.WriteLine("{0} {1}", "Discount Date: ", invoice.InvoiceDiscountDate);
-                Console.WriteLine("{0} {1}%", "Terms: ", invoice.InvoiceDiscount);
+                Console.WriteLine("{0} {1}", "Invoice Date: ", invoice.InvoiceDateTime.ToString("MMMM dd, yyyy"));
+                Console.WriteLine("{0} {1}", "Discount Date: ", invoice.InvoiceDiscountDate.ToString("MMMM dd, yyyy"));
+                Console.WriteLine("{0} {1:0n}% {2} {3}", "Terms: ", invoice.InvoiceDiscount, discountDates.ToString("dd"), "days ADI");
                 decimal subTotal = invoice.InvoiceTotalPrice + invoice.InvoiceTotalPrice2 + invoice.InvoiceTotalPrice3;
                 decimal gst = 0.05m;                
                 decimal taxGst = gst * subTotal;
-
                 decimal total = subTotal + GetPst(invoice.InvoicePrice) + GetPst(invoice.InvoicePrice) + GetPst(invoice.InvoicePrice) + taxGst;
-
-
+                decimal totalDisount = (invoice.InvoiceDiscount / 100) * total;
 
                 Console.WriteLine(new string('-', 78));
                 Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", "Qty", "SKU", "Description", "Price", "PST", "Ext");
-                Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", invoice.InvoiceQuantity, invoice.InvoiceSku, invoice.InvoiceDescription, invoice.InvoicePrice, invoice.InvoicePST, invoice.InvoiceTotalPrice);
-                Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", invoice.InvoiceQuantity2, invoice.InvoiceSku2, invoice.InvoiceDescription2, invoice.InvoicePrice2, invoice.InvoicePST2, invoice.InvoiceTotalPrice2);
+                if (invoice.InvoiceQuantity != 0)
+                {
+                    Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", invoice.InvoiceQuantity, invoice.InvoiceSku, invoice.InvoiceDescription, invoice.InvoicePrice, invoice.InvoicePST, invoice.InvoiceTotalPrice);
+                }
+                if (invoice.InvoiceQuantity2 != 0)
+                {
+                    Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", invoice.InvoiceQuantity2, invoice.InvoiceSku2, invoice.InvoiceDescription2, invoice.InvoicePrice2, invoice.InvoicePST2, invoice.InvoiceTotalPrice2);
+                }
                 if (invoice.InvoiceQuantity3 != 0)
                 {
                     Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", invoice.InvoiceQuantity3, invoice.InvoiceSku3, invoice.InvoiceDescription3, invoice.InvoicePrice3, invoice.InvoicePST3, invoice.InvoiceTotalPrice3);
                 }
                 Console.WriteLine(new string('-', 78));
-                Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", "", "SubTotal: ","", "", "", subTotal);
-                Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", "", "GST", "", "", "", taxGst);
+                Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5:0,0.,10}", "", "SubTotal: ","", "", "", subTotal);
+                Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5:0,0.,10}", "", "GST", "", "", "", taxGst);
                 if (invoice.InvoicePST == "Y")
                 {
-                    Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", "", "PST", "", "", "", GetPst(invoice.InvoicePrice));
+                    Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5:0.00,10}", "", "PST", "", "", "", GetPst(invoice.InvoicePrice));
                 }          
                 if (invoice.InvoicePST2 == "Y")
                 {
-                    Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", "", "PST", "", "", "", GetPst(invoice.InvoicePrice2));
+                    Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5:0.00,10}", "", "PST", "", "", "", GetPst(invoice.InvoicePrice2));
                 }
                 if (invoice.InvoicePST3 == "Y")
                 {
-                    Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", "", "PST", "", "", "", GetPst(invoice.InvoicePrice3));
+                    Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5:n,10}", "", "PST", "", "", "", GetPst(invoice.InvoicePrice3));
                 }
                 Console.WriteLine(new string('-', 78));
-                Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,10} {5,10}", "", "Total:", "", "", "", total);
-              
+                Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,15} {5:0,0.00}", "", "Total:", "", "", "", total);
+                Console.WriteLine("{0, -15} {1, -10} {2,-20} {3,-7} {4,15} {5:0,0.00}", "", "Discount:", "", "", "", totalDisount);
             }
 
             decimal GetPst(decimal productCost)
             {
                 decimal pst = 0.07m;
                 return productCost * pst;
-            }
+            }          
 
-          
-
-        }
-       
+        }       
     }
 }
