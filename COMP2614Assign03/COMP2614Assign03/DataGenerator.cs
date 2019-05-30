@@ -162,7 +162,6 @@ namespace COMP2614Assign03
                     string invoicePst3 = GetValueOrEmpty(thirdItemDetail, 4);
                     invoicePSTList3.Add(invoicePst3);
 
-
                     invoiceTotalPrice = Convert.ToDecimal(invoiceQuantity * invoicePrice);
                     invoiceTotalPriceList.Add(invoiceTotalPrice);
 
@@ -266,90 +265,31 @@ namespace COMP2614Assign03
 
             invoices.Add(new Invoice
             {
-                InvoiceNumber = invoiceNumberList[0],
-                InvoiceDateTime = invoiceDateTimeList[0],
-                InvoiceDiscount = invoiceDiscountList[0],
-                InvoiceDiscountDate = invoiceDiscountDateList[0],
+                InvoiceNumber = invoiceNumberList[3],
+                InvoiceDateTime = invoiceDateTimeList[3],
+                InvoiceDiscount = invoiceDiscountList[3],
+                InvoiceDiscountDate = invoiceDiscountDateList[3],
 
-                InvoiceQuantity = invoiceQuantityList[0],
-                InvoiceSku = invoiceSkuList[0],
-                InvoiceDescription = invoiceDescriptionList[0],
-                InvoicePrice = invoicePriceList[0],
-                InvoicePST = invoicePSTList[0],
-                InvoiceTotalPrice = invoiceTotalPriceList[0],
+                InvoiceQuantity = invoiceQuantityList[3],
+                InvoiceSku = invoiceSkuList[3],
+                InvoiceDescription = invoiceDescriptionList[3],
+                InvoicePrice = invoicePriceList[3],
+                InvoicePST = invoicePSTList[3],
+                InvoiceTotalPrice = invoiceTotalPriceList[3],
 
+                InvoiceQuantity2 = invoiceQuantityList2[3],
+                InvoiceSku2 = invoiceSkuList2[3],
+                InvoiceDescription2 = invoiceDescriptionList2[3],
+                InvoicePrice2 = invoicePriceList2[3],
+                InvoicePST2 = invoicePSTList2[3],
+                InvoiceTotalPrice2 = invoiceTotalPriceList2[3],
 
-                InvoiceQuantity2 = invoiceQuantityList2[0],
-                InvoiceSku2 = invoiceSkuList2[0],
-                InvoiceDescription2 = invoiceDescriptionList2[0],
-                InvoicePrice2 = invoicePriceList2[0],
-                InvoicePST2 = invoicePSTList2[0],
-                InvoiceTotalPrice2 = invoiceTotalPriceList2[0],
-
-                InvoiceQuantity3 = invoiceQuantityList3[0],
-                InvoiceSku3 = invoiceSkuList3[0],
-                InvoiceDescription3 = invoiceDescriptionList3[0],
-                InvoicePrice3 = invoicePriceList3[0],
-                InvoicePST3 = invoicePSTList3[0],
-                InvoiceTotalPrice3 = invoiceTotalPriceList3[0]
-            }); ;
-
-            invoices.Add(new Invoice
-            {
-                InvoiceNumber = invoiceNumberList[1],
-                InvoiceDateTime = invoiceDateTimeList[1],
-                InvoiceDiscount = invoiceDiscountList[1],
-                InvoiceDiscountDate = invoiceDiscountDateList[1],
-
-                InvoiceQuantity = invoiceQuantityList[1],
-                InvoiceSku = invoiceSkuList[1],
-                InvoiceDescription = invoiceDescriptionList[1],
-                InvoicePrice = invoicePriceList[1],
-                InvoicePST = invoicePSTList[1],
-                InvoiceTotalPrice = invoiceTotalPriceList[1],
-
-                InvoiceQuantity2 = invoiceQuantityList2[1],
-                InvoiceSku2 = invoiceSkuList2[1],
-                InvoiceDescription2 = invoiceDescriptionList2[1],
-                InvoicePrice2 = invoicePriceList2[1],
-                InvoicePST2 = invoicePSTList2[1],
-                InvoiceTotalPrice2 = invoiceTotalPriceList2[1],
-
-                InvoiceQuantity3 = invoiceQuantityList3[1],
-                InvoiceSku3 = invoiceSkuList3[1],
-                InvoiceDescription3 = invoiceDescriptionList3[1],
-                InvoicePrice3 = invoicePriceList3[1],
-                InvoicePST3 = invoicePSTList3[1],
-                InvoiceTotalPrice3 = invoiceTotalPriceList3[1]
-            });
-
-            invoices.Add(new Invoice
-            {
-                InvoiceNumber = invoiceNumberList[2],
-                InvoiceDateTime = invoiceDateTimeList[2],
-                InvoiceDiscount = invoiceDiscountList[2],
-                InvoiceDiscountDate = invoiceDiscountDateList[2],
-
-                InvoiceQuantity = invoiceQuantityList[2],
-                InvoiceSku = invoiceSkuList[2],
-                InvoiceDescription = invoiceDescriptionList[2],
-                InvoicePrice = invoicePriceList[2],
-                InvoicePST = invoicePSTList[2],
-                InvoiceTotalPrice = invoiceTotalPriceList[2],
-
-                InvoiceQuantity2 = invoiceQuantityList2[2],
-                InvoiceSku2 = invoiceSkuList2[2],
-                InvoiceDescription2 = invoiceDescriptionList2[2],
-                InvoicePrice2 = invoicePriceList2[2],
-                InvoicePST2 = invoicePSTList2[2],
-                InvoiceTotalPrice2 = invoiceTotalPriceList2[2],
-
-                InvoiceQuantity3 = invoiceQuantityList3[2],
-                InvoiceSku3 = invoiceSkuList3[2],
-                InvoiceDescription3 = invoiceDescriptionList3[2],
-                InvoicePrice3 = invoicePriceList3[2],
-                InvoicePST3 = invoicePSTList3[2],
-                InvoiceTotalPrice3 = invoiceTotalPriceList3[2]
+                InvoiceQuantity3 = invoiceQuantityList3[3],
+                InvoiceSku3 = invoiceSkuList3[3],
+                InvoiceDescription3 = invoiceDescriptionList3[3],
+                InvoicePrice3 = invoicePriceList3[3],
+                InvoicePST3 = invoicePSTList3[3],
+                InvoiceTotalPrice3 = invoiceTotalPriceList3[3]
             });
 
             //invoicesString = invoices;
