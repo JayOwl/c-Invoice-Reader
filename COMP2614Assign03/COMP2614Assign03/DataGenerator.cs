@@ -15,16 +15,16 @@ namespace COMP2614Assign03
             int invoiceNumber;
             int invoiceDiscount;
             //int invoiceChangeTime;
-            
-            
-         
+
+
+
             DateTime invoiceDateTime;
             //DateTime invoiceDiscountDate;
 
             List<string> lines = new List<string>();
             List<string> splitLinesByColonList = new List<string>();
-           
-         
+
+
             List<int> invoiceNumberList = new List<int>();
 
             List<DateTime> invoiceDateTimeList = new List<DateTime>();
@@ -34,27 +34,27 @@ namespace COMP2614Assign03
 
             int invoiceQuantity;
             int invoiceQuantity2;
-            //int invoiceQuantity3;
+            int invoiceQuantity3;
 
             string invoiceSku;
             string invoiceSku2;
-            //string invoiceSku3;
+            string invoiceSku3;
 
             string invoiceDescription;
             string invoiceDescription2;
-            //string invoiceDescription3;
+            string invoiceDescription3;
 
             decimal invoicePrice;
             decimal invoicePrice2;
-            //decimal invoicePrice3;
+            decimal invoicePrice3;
 
             string invoicePst;
             string invoicePst2;
-            //string invoicePst3;
+            string invoicePst3;
 
             decimal invoiceTotalPrice;
             decimal invoiceTotalPrice2;
-            //decimal invoiceTotalPrice3;
+            decimal invoiceTotalPrice3;
 
             List<int> invoiceQuantityList = new List<int>();
             List<int> invoiceQuantityList2 = new List<int>();
@@ -83,10 +83,10 @@ namespace COMP2614Assign03
 
             using (StreamReader reader = new StreamReader("...\\...\\invoiceData.txt"))
             {
-                string line;      
-
+                string line;
+                // string[] thirdItemDetail;
                 while ((line = reader.ReadLine()) != null)
-                {       
+                {
 
                     lines.Add(line);
                     string[] splitLineByColon = line.Split(':');
@@ -95,26 +95,10 @@ namespace COMP2614Assign03
 
                     string[] firstItemDetail = splitByPipeandColon[0].Split(':');
                     string[] secondItemDetail = splitByPipeandColon[1].Split(':');
-                   // string[] thirdItemDetail = splitByPipeandColon[2].Split(':');
-
-                    //foreach (int i = 0; i < thirdItemDetail.Length; i++)
-                    //{
-                        
-                    //}
-
-                   
-                    //if (thirdItemDetail.Length < 0)
-                    //{
-                    //    return null;
-                    //}
-                    //else
-                    //{
-                       
-                    //}
+                    string[] thirdItemDetail = splitByPipeandColon[2].Split(':');
 
 
 
-                        //string[] fourthDetail = splitByPipeandColon[3].Split(':');
 
 
                     invoiceNumber = Convert.ToInt32(splitLineByColon[0]);
@@ -131,16 +115,14 @@ namespace COMP2614Assign03
                     invoiceDiscountList.Add(invoiceDiscount);
 
 
-
-
                     invoiceQuantity = Convert.ToInt32(firstItemDetail[0]);
                     invoiceQuantityList.Add(invoiceQuantity);
 
                     invoiceQuantity2 = Convert.ToInt32(secondItemDetail[0]);
                     invoiceQuantityList2.Add(invoiceQuantity2);
 
-                    //invoiceQuantity3 = Convert.ToInt32(thirdItemDetail[0]);
-                    //invoiceQuantityList3.Add(invoiceQuantity3);
+                    invoiceQuantity3 = Convert.ToInt32(thirdItemDetail[0]);
+                    invoiceQuantityList3.Add(invoiceQuantity3);
 
 
                     invoiceSku = firstItemDetail[1];
@@ -149,8 +131,8 @@ namespace COMP2614Assign03
                     invoiceSku2 = secondItemDetail[1];
                     invoiceSkuList2.Add(invoiceSku2);
 
-                    //invoiceSku3 = thirdItemDetail[1];
-                    //invoiceSkuList.Add(invoiceSku3);
+                    invoiceSku3 = thirdItemDetail[1];
+                    invoiceSkuList3.Add(invoiceSku3);
 
 
                     invoiceDescription = firstItemDetail[2];
@@ -159,8 +141,8 @@ namespace COMP2614Assign03
                     invoiceDescription2 = secondItemDetail[2];
                     invoiceDescriptionList2.Add(invoiceDescription2);
 
-                    //invoiceDescription3 = thirdItemDetail[2];
-                    //invoiceDescriptionList3.Add(invoiceDescription3);
+                    invoiceDescription3 = thirdItemDetail[2];
+                    invoiceDescriptionList3.Add(invoiceDescription3);
 
 
                     invoicePrice = Convert.ToDecimal(firstItemDetail[3]);
@@ -169,8 +151,8 @@ namespace COMP2614Assign03
                     invoicePrice2 = Convert.ToDecimal(secondItemDetail[3]);
                     invoicePriceList2.Add(invoicePrice2);
 
-                    //invoicePrice3 = Convert.ToDecimal(thirdItemDetail[3]);
-                    //invoicePriceList3.Add(invoicePrice3);
+                    invoicePrice3 = Convert.ToDecimal(thirdItemDetail[3]);
+                    invoicePriceList3.Add(invoicePrice3);
 
 
                     invoicePst = firstItemDetail[4];
@@ -179,8 +161,8 @@ namespace COMP2614Assign03
                     invoicePst2 = secondItemDetail[4];
                     invoicePSTList2.Add(invoicePst2);
 
-                    //invoicePst3 = thirdItemDetail[4];
-                    //invoicePSTList3.Add(invoicePst3);
+                    invoicePst3 = thirdItemDetail[4];
+                    invoicePSTList3.Add(invoicePst3);
 
 
                     invoiceTotalPrice = Convert.ToDecimal(invoiceQuantity * invoicePrice);
@@ -189,12 +171,11 @@ namespace COMP2614Assign03
                     invoiceTotalPrice2 = Convert.ToDecimal(invoiceQuantity2 * invoicePrice2);
                     invoiceTotalPriceList2.Add(invoiceTotalPrice2);
 
-                    //invoiceTotalPrice3 = Convert.ToDecimal(invoiceQuantity3 * invoicePrice3);
-                    //invoiceTotalPriceList3.Add(invoiceTotalPrice3);
-
-                }     
+                    invoiceTotalPrice3 = Convert.ToDecimal(invoiceQuantity3 * invoicePrice3);
+                    invoiceTotalPriceList3.Add(invoiceTotalPrice3);
+                }
             }
-
+    
 
         InvoiceCollection invoices = new InvoiceCollection();
 
@@ -217,7 +198,14 @@ namespace COMP2614Assign03
                 InvoiceDescription2 = invoiceDescriptionList2[0],
                 InvoicePrice2 = invoicePriceList2[0],
                 InvoicePST2 = invoicePSTList2[0],
-                InvoiceTotalPrice2 = invoiceTotalPriceList2[0]
+                InvoiceTotalPrice2 = invoiceTotalPriceList2[0],
+
+                InvoiceQuantity3 = invoiceQuantityList3[0],
+                InvoiceSku3 = invoiceSkuList3[0],
+                InvoiceDescription3 = invoiceDescriptionList3[0],
+                InvoicePrice3 = invoicePriceList3[0],
+                InvoicePST3 = invoicePSTList3[0],
+                InvoiceTotalPrice3 = invoiceTotalPriceList3[0]
         }); ;
 
         invoices.Add(new Invoice {
@@ -237,7 +225,14 @@ namespace COMP2614Assign03
                 InvoiceDescription2 = invoiceDescriptionList2[1],
                 InvoicePrice2 = invoicePriceList2[1],
                 InvoicePST2 = invoicePSTList2[1],
-                InvoiceTotalPrice2 = invoiceTotalPriceList2[1]
+                InvoiceTotalPrice2 = invoiceTotalPriceList2[1],
+
+                InvoiceQuantity3 = invoiceQuantityList3[1],
+                InvoiceSku3 = invoiceSkuList3[1],
+                InvoiceDescription3 = invoiceDescriptionList3[1],
+                InvoicePrice3 = invoicePriceList3[1],
+                InvoicePST3 = invoicePSTList3[1],
+                InvoiceTotalPrice3 = invoiceTotalPriceList3[1]
         });
 
         invoices.Add(new Invoice {
@@ -257,7 +252,14 @@ namespace COMP2614Assign03
                 InvoiceDescription2 = invoiceDescriptionList2[1],
                 InvoicePrice2 = invoicePriceList2[2],
                 InvoicePST2 = invoicePSTList2[2],
-                InvoiceTotalPrice2 = invoiceTotalPriceList2[2]
+                InvoiceTotalPrice2 = invoiceTotalPriceList2[2],
+
+                InvoiceQuantity3 = invoiceQuantityList3[2],
+                InvoiceSku3 = invoiceSkuList3[2],
+                InvoiceDescription3 = invoiceDescriptionList3[2],
+                InvoicePrice3 = invoicePriceList3[2],
+                InvoicePST3 = invoicePSTList3[2],
+                InvoiceTotalPrice3 = invoiceTotalPriceList3[2]
         });
 
             //invoicesString = invoices;

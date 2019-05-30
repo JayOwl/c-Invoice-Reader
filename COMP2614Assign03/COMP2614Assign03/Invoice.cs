@@ -22,27 +22,28 @@ namespace COMP2614Assign03
 
         public int InvoiceQuantity { get; set; }
         public int InvoiceQuantity2 { get; set; }
-      //  public int InvoiceQuantity3 { get; set; }
+
+      public int InvoiceQuantity3 { get; set; }
 
         public string InvoiceSku { get; set; }
         public string InvoiceSku2 { get; set; }
-        //public string InvoiceSku3 { get; set; }
+        public string InvoiceSku3 { get; set; }
 
         public string InvoiceDescription { get; set; }
         public string InvoiceDescription2 { get; set; }
-        //public string InvoiceDescription3 { get; set; }
+        public string InvoiceDescription3 { get; set; }
 
         public decimal InvoicePrice { get; set; }
         public decimal InvoicePrice2 { get; set; }
-       // public decimal InvoicePrice3 { get; set; }
+       public decimal InvoicePrice3 { get; set; }
 
         public string InvoicePST { get; set; }
         public string InvoicePST2 { get; set; }
-        //public string InvoicePST3 { get; set; }
+        public string InvoicePST3 { get; set; }
 
         public decimal InvoiceTotalPrice { get; set; }
         public decimal InvoiceTotalPrice2 { get; set; }
-        //public decimal InvoiceTotalPrice3 { get; set; }
+        public decimal InvoiceTotalPrice3 { get; set; }
 
 
 
@@ -51,7 +52,8 @@ namespace COMP2614Assign03
         public override string ToString()
         {
             return $"{InvoiceNumber} {InvoiceDateTime}  {InvoiceDiscount} {InvoiceQuantity} {InvoiceSku} {InvoicePrice} " +
-                $"{InvoiceQuantity2} {InvoiceSku2} {InvoicePrice2} ";
+                $"{InvoiceQuantity2} {InvoiceSku2} {InvoicePrice2} " +
+                $"{InvoiceQuantity3} {InvoiceSku3} {InvoicePrice3}";
         }
 
     }
