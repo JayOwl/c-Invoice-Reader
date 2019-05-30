@@ -292,7 +292,66 @@ namespace COMP2614Assign03
                 InvoiceTotalPrice3 = invoiceTotalPriceList3[3]
             });
 
-            //invoicesString = invoices;
+
+            invoices.Add(new Invoice
+            {
+                InvoiceNumber = invoiceNumberList[4],
+                InvoiceDateTime = invoiceDateTimeList[4],
+                InvoiceDiscount = invoiceDiscountList[4],
+                InvoiceDiscountDate = invoiceDiscountDateList[4],
+
+                InvoiceQuantity = invoiceQuantityList[4],
+                InvoiceSku = invoiceSkuList[4],
+                InvoiceDescription = invoiceDescriptionList[4],
+                InvoicePrice = invoicePriceList[4],
+                InvoicePST = invoicePSTList[4],
+                InvoiceTotalPrice = invoiceTotalPriceList[4],
+
+                InvoiceQuantity2 = invoiceQuantityList2[4],
+                InvoiceSku2 = invoiceSkuList2[4],
+                InvoiceDescription2 = invoiceDescriptionList2[4],
+                InvoicePrice2 = invoicePriceList2[4],
+                InvoicePST2 = invoicePSTList2[4],
+                InvoiceTotalPrice2 = invoiceTotalPriceList2[4],
+
+                InvoiceQuantity3 = invoiceQuantityList3[4],
+                InvoiceSku3 = invoiceSkuList3[4],
+                InvoiceDescription3 = invoiceDescriptionList3[4],
+                InvoicePrice3 = invoicePriceList3[4],
+                InvoicePST3 = invoicePSTList3[4],
+                InvoiceTotalPrice3 = invoiceTotalPriceList3[4]
+            });
+
+
+            invoices.Add(new Invoice
+            {
+                InvoiceNumber = invoiceNumberList[5],
+                InvoiceDateTime = invoiceDateTimeList[5],
+                InvoiceDiscount = invoiceDiscountList[5],
+                InvoiceDiscountDate = invoiceDiscountDateList[5],
+
+                InvoiceQuantity = invoiceQuantityList[5],
+                InvoiceSku = invoiceSkuList[5],
+                InvoiceDescription = invoiceDescriptionList[5],
+                InvoicePrice = invoicePriceList[5],
+                InvoicePST = invoicePSTList[5],
+                InvoiceTotalPrice = invoiceTotalPriceList[5],
+
+                InvoiceQuantity2 = invoiceQuantityList2[5],
+                InvoiceSku2 = invoiceSkuList2[5],
+                InvoiceDescription2 = invoiceDescriptionList2[5],
+                InvoicePrice2 = invoicePriceList2[5],
+                InvoicePST2 = invoicePSTList2[5],
+                InvoiceTotalPrice2 = invoiceTotalPriceList2[5],
+
+                InvoiceQuantity3 = invoiceQuantityList3[5],
+                InvoiceSku3 = invoiceSkuList3[5],
+                InvoiceDescription3 = invoiceDescriptionList3[5],
+                InvoicePrice3 = invoicePriceList3[5],
+                InvoicePST3 = invoicePSTList3[5],
+                InvoiceTotalPrice3 = invoiceTotalPriceList3[5]
+            });
+ 
             return invoices;            
 
         }
