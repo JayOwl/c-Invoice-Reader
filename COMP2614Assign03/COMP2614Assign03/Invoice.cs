@@ -19,7 +19,6 @@ namespace COMP2614Assign03
         public decimal InvoiceDiscount { get; set; }
 
 
-
         public int InvoiceQuantity { get; set; }
         public int InvoiceQuantity2 { get; set; }
         public int InvoiceQuantity3 { get; set; }
@@ -64,7 +63,6 @@ namespace COMP2614Assign03
         public decimal InvoiceTotalPrice4 { get; set; }
         public decimal InvoiceTotalPrice5 { get; set; }
         public decimal InvoiceTotalPrice6 { get; set; }
-
 
 
         public override string ToString()

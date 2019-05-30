@@ -118,7 +118,6 @@ namespace COMP2614Assign03
                     invoiceQuantityList3.Add(invoiceQuantity3);
 
 
-
                     string invoiceSku = GetValueOrEmpty(firstItemDetail, 1);
                     invoiceSkuList.Add(invoiceSku);
                
@@ -150,7 +149,6 @@ namespace COMP2614Assign03
                     string price3 = GetValueOrEmpty(thirdItemDetail, 3);
                     decimal.TryParse(price3, out invoicePrice3);
                     invoicePriceList3.Add(invoicePrice3);
-
  
 
                     string invoicePst = GetValueOrEmpty(firstItemDetail, 4);
@@ -350,9 +348,8 @@ namespace COMP2614Assign03
                 InvoicePrice3 = invoicePriceList3[5],
                 InvoicePST3 = invoicePSTList3[5],
                 InvoiceTotalPrice3 = invoiceTotalPriceList3[5]
-            });
- 
-            return invoices;            
+            }); 
+            return invoices;           
 
         }
 

@@ -20,7 +20,6 @@ namespace COMP2614Assign03
             {
                 TimeSpan discountDates = invoice.InvoiceDiscountDate.Subtract(invoice.InvoiceDateTime);
 
-
                 Console.WriteLine("{0,-20} {1,5}", "Invoice Number: ", invoice.InvoiceNumber);
                 Console.WriteLine("{0,-20} {1,5}", "Invoice Date: ", invoice.InvoiceDateTime.ToString("MMMM dd, yyyy"));
                 Console.WriteLine("{0,-20} {1,5}", "Discount Date: ", invoice.InvoiceDiscountDate.ToString("MMMM dd, yyyy"));
